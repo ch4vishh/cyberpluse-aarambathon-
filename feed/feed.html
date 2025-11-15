@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPulse - Cybersecurity News Feed</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🔐 CyberPulse</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search news by title or description...">
+                <button onclick="searchNews()">Search</button>
+            </div>
+            <div class="header-nav">
+                <a onclick="loadHome()" style="cursor: pointer;">Home</a>
+                <a onclick="loadTrending()" style="cursor: pointer;">Trending</a>
+                <a onclick="loadBookmarks()" style="cursor: pointer;">Bookmarks</a>
+                <a onclick="openProfile()" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <div class="profile-avatar">👤</div> Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Categories & Tags</h2>
+            <div class="categories">
+                <button class="category-btn" onclick="filterByTag('Vulnerability')">🔴 Vulnerabilities</button>
+                <button class="category-btn" onclick="filterByTag('Encryption')">🔐 Encryption</button>
+                <button class="category-btn" onclick="filterByTag('Ransomware')">💀 Ransomware</button>
+                <button class="category-btn" onclick="filterByTag('AI')">🤖 AI & Machine Learning</button>
+                <button class="category-btn" onclick="filterByTag('APT')">👁️ APT Groups</button>
+                <button class="category-btn" onclick="filterByTag('Phishing')">🎣 Phishing</button>
+                <button class="category-btn" onclick="filterByTag('DDoS')">💥 DDoS Attacks</button>
+                <button class="category-btn" onclick="filterByTag('Malware')">🦠 Malware</button>
+                <button class="category-btn" onclick="filterByTag('Cloud')">☁️ Cloud Security</button>
+                <button class="category-btn" onclick="filterByTag('IoT')">📡 IoT Security</button>
+                <button class="category-btn" onclick="filterByTag('Supply Chain')">🔗 Supply Chain</button>
+                <button class="category-btn" onclick="filterByTag('Blockchain')">⛓️ Blockchain</button>
+                <button class="category-btn" onclick="filterByTag('Zero Trust')">🛡️ Zero Trust</button>
+                <button class="category-btn" onclick="filterByTag('Compliance')">⚖️ Compliance</button>
+                <button class="category-btn" onclick="filterByTag('Training')">📚 Training</button>
+                <button class="category-btn" onclick="filterByTag('Authentication')">🔑 Authentication</button>
+                <button class="category-btn" onclick="filterByTag('Mobile')">📱 Mobile Security</button>
+                <button class="category-btn" onclick="filterByTag('Web Security')">🌐 Web Security</button>
+                <button class="category-btn" onclick="filterByTag('Database')">🗄️ Database</button>
+                <button class="category-btn" onclick="filterByTag('Network')">🌍 Network Security</button>
+            </div>
+
+            <!-- Stats moved to sidebar below categories -->
+            <div class="sidebar-stats">
+                <h3>Statistics</h3>
+                <div class="sidebar-stat-card">
+                    <div class="sidebar-stat-label">Total Posts</div>
+                    <div class="sidebar-stat-value" id="totalPosts">0</div>
+                </div>
+                <div class="sidebar-stat-card">
+                    <div class="sidebar-stat-label">Total Upvotes</div>
+                    <div class="sidebar-stat-value" id="totalUpvotes">0</div>
+                </div>
+                <div class="sidebar-stat-card">
+                    <div class="sidebar-stat-label">Total Views</div>
+                    <div class="sidebar-stat-value" id="totalViews">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feed -->
+        <div class="feed">
+            <!-- Stats container removed - moved to sidebar -->
+            <!-- Feed Container -->
+            <div class="feed-container" id="feedContainer"></div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()">&times;</span>
+            <h2>User Profile</h2>
+            <div class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-large-avatar">👤</div>
+                    <div class="profile-info">
+                        <h3>Security Researcher</h3>
+                        <p>Cybersecurity Enthusiast</p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="stat-number" id="profileBookmarks">0</span>
+                        <span class="stat-label">Bookmarks</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="stat-number" id="profileVotes">0</span>
+                        <span class="stat-label">Votes Cast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="feed.js"></script>
+</body>
+</html>
+
